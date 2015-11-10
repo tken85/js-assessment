@@ -22,7 +22,12 @@ exports.functionsAnswers = {
   },
 
   useArguments : function() {
-
+    var args = [].slice.call(arguments);
+    var total = 0;
+    _.each(args, function(currVal){
+      total += currVal;
+    });
+    return total;
   },
 
   callIt : function(fn) {
