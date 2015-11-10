@@ -24,12 +24,10 @@ exports.arraysAnswers = {
   },
 
   removeWithoutCopy : function(arr, item) {
-    /*return _.each(arr, function(currVal, idx, currArr){
-      if(currVal === item ){
-        currArr.splice(idx, 1);
-      }
-    });*/
-
+     for(var i=0; i<arr.length; i++){
+       arr.splice(arr.indexOf(item),1);
+   };
+   return arr;
   },
 
   append : function(arr, item) {
@@ -72,8 +70,15 @@ exports.arraysAnswers = {
   },
 
   duplicates : function(arr) {
-    var dupFree = _.uniq(arr);
-    return dupFree;
+    var dups =[];
+    var sorted = arr.sort();
+    _.each(sorted, function(currVal, idx, arr){
+      if(sorted[idx] === sorted[idx+1]){
+        dups.push(currVal);
+      }
+    });
+    var uniq = _.uniq(dups);
+    return uniq;
   },
 
   square : function(arr) {
@@ -81,6 +86,12 @@ exports.arraysAnswers = {
   },
 
   findAllOccurrences : function(arr, target) {
-
+    var emptyArr =[];
+    _.each(arr, function(currVal, idx, arr){
+      if(currVal === target){
+        emptyArr.unshift(idx);
+      }
+    });
+    return emptyArr;
   }
 };
