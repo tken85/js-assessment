@@ -45,7 +45,7 @@ describe('functions', function() {
 
     var funcs = functionsAnswers.makeClosures(arr, square);
     expect(funcs).to.have.length(arr.length);
-
+    console.log(funcs);
     for (var i = 0; i < arr.length; i++) {
       expect(funcs[i]()).to.eql(square(arr[i]));
     }
@@ -129,15 +129,15 @@ describe('functions', function() {
     result = functionsAnswers.curryIt(curryMe);
     expect(typeof result).to.eql('function');
     expect(result.length).to.eql(1);
-
+    console.log("test1");
     result = functionsAnswers.curryIt(curryMe)(a);
     expect(typeof result).to.eql('function');
     expect(result.length).to.eql(1);
-
+    console.log("test2");
     result = functionsAnswers.curryIt(curryMe)(a)(b);
     expect(typeof result).to.eql('function');
     expect(result.length).to.eql(1);
-
+    console.log("test3");
     result = functionsAnswers.curryIt(curryMe)(a)(b)(c);
     expect(typeof result).to.eql('number');
     expect(result).to.eql(curryMe(a, b, c));
